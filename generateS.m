@@ -11,7 +11,7 @@ vertices = zeros(numPixels, 3);
 
 % filling the vertices array with each pixel of mat
 for i = 1:numPixels
-    vertexRow = [i, i, mat(i)];
+    vertexRow = [i-1, i-1, mat(i)];
     vertices(i,:) = vertexRow; 
 end
 
@@ -34,10 +34,10 @@ for i = 1:numPixels
     
     for j = 1:length(edgeRelations)
         neighborIndex = i + edgeRelations(j);
-        if neighborIndex < 1 || neighborIndex > numPixels
+        if neighborIndex < 1 || neighborIndex > numPixels || (mod(i, dim) == 0 && ~(edgeRelations(j)==dim))
             continue;
         end
-        newEntry = [i, neighborIndex, max(mat(i), mat(neighborIndex))];
+        newEntry = [i-1, neighborIndex-1, max(mat(i), mat(neighborIndex))];
         edges = [edges; newEntry]; 
     end
     

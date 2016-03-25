@@ -5,7 +5,7 @@ path = '/Users/nbv3/Desktop/Math_Projects/LIDC-IDRI/Unnamed/Unnamed__0/unnamed_3
 filename = 'IM-0001-0080.jpg';
 
 image = rgb2gray(imread([path filename]));
-cropAmount = 499;
+cropAmount = 480;
 startCrop = cropAmount;
 endCrop = length(image) - cropAmount;
 
@@ -19,13 +19,15 @@ mesh(croppedImage);
 
 
 % Cropped image ready in uni-valued intensity grayscale
-start = tic;
-S = generateS(croppedImage);
-stop = toc(start);
-
-stop
+% start = tic;
+ S = generateS(croppedImage);
+% 
+% stop = toc(start);
+% 
+% stop
 
 % compute persistence diagrams
 
 [I, J] = rca1mfscm(S, 270);
-
+figure(2)
+plotpersistencediagram(J);%% Test Script to Load and Examine CT Scan Jpegs
