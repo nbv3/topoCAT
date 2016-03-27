@@ -2,10 +2,10 @@
 % Nicholas von Turkovich
 
 pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Screen__0/unnamed_0';
-filenameHealthy = '/IM-0001-0070.jpg';
+filenameHealthy = '/IM-0001-0050.jpg';
 
 pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/0571/Ct_Lung_Screen__0/unnamed_0';
-filenameUnhealthy = '/IM-0001-0070.jpg';
+filenameUnhealthy = '/IM-0001-0060.jpg';
 
 image = rgb2gray(imread([pathHealthy filenameHealthy]));
 image2 = rgb2gray(imread([pathUnhealthy filenameUnhealthy]));
@@ -43,9 +43,6 @@ yendCrop = length(smallerImage) - ycropAmount;
 
 croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
 
-indicesToFloor = find(croppedImage < 30);
-croppedImage(indicesToFloor) = 0;
-
 % processing for image 2
 xcropAmount = 5;
 xstartCrop = xcropAmount;
@@ -57,22 +54,41 @@ yendCrop = length(smallerImage2) - ycropAmount;
 
 croppedImage2 = double(smallerImage2(xstartCrop:xendCrop, ystartCrop:yendCrop));
 
-indicesToFloor2 = find(croppedImage2 < 30);
-croppedImage2(indicesToFloor2) = 0;
-
 figure(3)
 subplot(2,1,1)
 imagesc(croppedImage);
+colormap gray;
 
 subplot(2,1,2)
 imagesc(croppedImage2);
+colormap gray;
+
+m = mean2(croppedImage);
+m2 = mean2(croppedImage2);
+dev = std(croppedImage);
+dev2 = std(croppedImage2);
+
+indicesToFloor = find(croppedImage < m);
+croppedImage(indicesToFloor) = 0;
+indicesToFloor2 = find(croppedImage2 < m2);
+croppedImage2(indicesToFloor2) = 0;
+
+figure(4)
+subplot(2,1,1)
+imagesc(imadjust(croppedImage));
+colormap gray;
+
+subplot(2,1,2)
+imagesc(imadjust(croppedImage2));
+colormap gray;
+
 
 % compute topology features on a cloud composed of the nonzero 2D vertices
 
 [row col] = find(croppedImage);
 [row2 col2] = find(croppedImage2);
 
-figure(4)
+figure(5)
 subplot(2,1,1);
 plot(row, col, 'k.');
 
