@@ -4,7 +4,7 @@
 pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Screen__0/unnamed_0';
 filenameHealthy = '/IM-0001-0050.jpg';
 
-pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/0571/Ct_Lung_Screen__0/unnamed_0';
+pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/unnamed_3211';
 filenameUnhealthy = '/IM-0001-0060.jpg';
 
 image = rgb2gray(imread([pathHealthy filenameHealthy]));
@@ -33,26 +33,28 @@ subplot(2,1,2)
 mesh(smallerImage2);
 
 % processing for image 1
-xcropAmount = 10;
-xstartCrop = xcropAmount;
-xendCrop = length(smallerImage) - xcropAmount;
+% xcropAmount = 10;
+% xstartCrop = xcropAmount;
+% xendCrop = length(smallerImage) - xcropAmount;
+% 
+% % processing for image 2
+% xcropAmount = 5;
+% xstartCrop = xcropAmount;
+% xendCrop = length(smallerImage2) - xcropAmount;
+% 
+% ycropAmount = 5;
+% ystartCrop = ycropAmount;
+% yendCrop = length(smallerImage2) - ycropAmount;
+% 
+% croppedImage2 = double(smallerImage2(xstartCrop:xendCrop, ystartCrop:yendCrop));
+% ycropAmount = 1;
+% ystartCrop = ycropAmount;
+% yendCrop = length(smallerImage) - ycropAmount;
+% 
+% croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
 
-ycropAmount = 1;
-ystartCrop = ycropAmount;
-yendCrop = length(smallerImage) - ycropAmount;
-
-croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
-
-% processing for image 2
-xcropAmount = 5;
-xstartCrop = xcropAmount;
-xendCrop = length(smallerImage2) - xcropAmount;
-
-ycropAmount = 5;
-ystartCrop = ycropAmount;
-yendCrop = length(smallerImage2) - ycropAmount;
-
-croppedImage2 = double(smallerImage2(xstartCrop:xendCrop, ystartCrop:yendCrop));
+croppedImage = double(smallerImage);
+croppedImage2 = double(smallerImage2);
 
 figure(3)
 subplot(2,1,1)
@@ -109,8 +111,8 @@ distanceBound = max(distances);
 distanceBound2 = max(distances2);
 
 init;
-[I, J] = rca1dm(dmat,distanceBound*0.25);
-[I2, J2] = rca1dm(dmat2, distanceBound2*0.25);
+[I, J] = rca1dm(dmat,distanceBound*0.125);
+[I2, J2] = rca1dm(dmat2, distanceBound2*0.125);
 
 figure(5)
 subplot(2,1,1)
