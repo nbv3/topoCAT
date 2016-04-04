@@ -2,10 +2,10 @@
 % Nicholas von Turkovich
 
 pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Screen__0/unnamed_0/';
-filenameHealthy = 'IM-0001-0030.jpg';
+filenameHealthy = 'IM-0001-0060.jpg';
 
-pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/unnamed_3211/';
-filenameUnhealthy = 'IM-0001-0030.jpg';
+pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/321/Ct_Chest_Wo_Contrast__0/unnamed_2/';
+filenameUnhealthy = 'IM-0001-0060.jpg';
 
 image = rgb2gray(imread([pathHealthy filenameHealthy]));
 image2 = rgb2gray(imread([pathUnhealthy filenameUnhealthy]));
@@ -34,31 +34,17 @@ subplot(2,1,2)
 mesh(smallerImage2);
 
 % processing for image 1
-xcropAmount = 10;
-xstartCrop = xcropAmount;
-xendCrop = length(smallerImage) - xcropAmount;
 
-ycropAmount = 10;
-ystartCrop = ycropAmount;
-yendCrop = length(smallerImage) - ycropAmount;
+croppedImage = double(smallerImage);
 
-croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
-
-indicesToFloor = find(croppedImage < 100);
+indicesToFloor = find(croppedImage < mean(croppedImage(:)));
 croppedImage(indicesToFloor) = 0;
 
 % processing for image 2
-xcropAmount = 10;
-xstartCrop = xcropAmount;
-xendCrop = length(smallerImage2) - xcropAmount;
 
-ycropAmount = 10;
-ystartCrop = ycropAmount;
-yendCrop = length(smallerImage2) - ycropAmount;
+croppedImage2 = double(smallerImage2);
 
-croppedImage2 = double(smallerImage2(xstartCrop:xendCrop, ystartCrop:yendCrop));
-
-indicesToFloor2 = find(croppedImage2 < 100);
+indicesToFloor2 = find(croppedImage2 < mean(croppedImage2(:)));
 croppedImage2(indicesToFloor2) = 0;
 
 figure(3)
@@ -89,6 +75,16 @@ title('Healthy');
 subplot(2,1,2)
 plotpersistencediagram(I2);
 title('Unhealthy');
+
+figure(5)
+subplot(2,1,1)
+plotpersistencediagram(J);
+title('Healthy');
+
+subplot(2,1,2)
+plotpersistencediagram(J2);
+title('Unhealthy');
+
 
 % figure(4)
 % I = sortbypersistence(I)
