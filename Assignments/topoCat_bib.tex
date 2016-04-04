@@ -65,12 +65,14 @@
 \indent We observe that cancerous tissue in the lung forms \textit{nodules}, which grow and form as the cancer spreads. These nodules are typically small, connected, clusters of distinct tissue, with an underlying structure that appears to generally persist between patients. We hope to apply topological analysis to this image data in order to extract relevant features from these tissue structures, which will be used to develop, train, and test classification and/or regression algorithms.
 
 \section{Hypothesis}
-The extraction of topological features from CT scans of patients with and without lung cancer will allow us to train a reliable classification and regression algorithm to accurately and reliably predict:
+Publicly-available CT scans of patients with and without lung cancer will allow us to train a reliable classification and regression algorithm to accurately and reliably predict:
 \begin{itemize}
 \item Whether or not this patient has lung cancer (generally).
-\item Patient prognosis based on the proliferation, connectivity, and growth of cancerous tissue.
+\item Patient prognosis based on characteristics of the growth and connectivity of cancerous tissues, extracted via topological analysis.
 \end{itemize}
+
 \section{Data}
+We will use publicly-available imagery data, compiled by the Lung Image Database Consortium \cite{LDIC}, and provided via The Cancer Imaging Archive \cite{TCIA}. We will be using imagery from the CT scans of 1,000 randomly selected patients, comprised of patients with diagnoses ranging from cancer-free (healthy) to late-stage lung cancer of various forms.
 
 \chapter{The Approach}
 
@@ -82,11 +84,11 @@ Some preliminary data processing and feature extraction using the TDA toolkit ha
 \subsection{Visualizing CT Scans in Osirix Lite}
 
 Osirix Lite is the free version of a popular software that is used to visualize and keep track of medical imagery, specifically scans composed of individual images taken over some height function (like CT scans).\newline
-\\
+
 Referring to the annotations spreadsheet that accompanies the LIDC-IDRI, a couple subjects were used to get a sense of the visual differences between patients with a large number of nodules and those with relatively "clear" lungs. The two CT scans selected were ID's 321 (25 nodules) and 306 (0 nodules).\newline
-\\
+
 Below are cross sections of the lung that illustrate the difference between images of lungs with virtually no growths or nodules and lungs with a large amount of nodules:\newline
-\\
+
 \begin{figure}
 \centering
 \begin{subfigure}{.5\textwidth}
@@ -103,80 +105,82 @@ Below are cross sections of the lung that illustrate the difference between imag
 \end{subfigure}
 \caption{A figure with two subfigures}
 \label{fig:test}
-\end{figure}\newline
-\\
+\end{figure}
+
 While these cross sections only illustrate the presence of nodules for a particular "height" within the lungs of the two patients, visualizing the images of these cross sections helped to foster an intuition about the topological features of the lungs or images of the lungs. Just from these images, one can see that the number of unconnected components in the image of the patient with a large number of nodules is greater than that of the patient with clear lungs.
 
 \subsection{Filtering Individual Slides of CT Scans by Pixel Intensity}
 
 The first approach to generating persistence diagrams was to triangulate an image based on pixel intensity (see generateS.m in Appendix) values and use that distance matrix to filter the image (testScript.m in Appendix). The findings did not seem to be point to any strong difference between cloudy and clear lungs using this filtration (more work needs to be done on this route to see if it yields anything interesting).\newline
-\\
+
 Below are the pre-processed images of the lungs before analysis with rca1mfscm.m.
 
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{tSIm.jpg}
 	\caption{Post Image Processing: Clear Lung above Cloudy Lung}
-\end{figure}\newline
-\\
+\end{figure}
+
 Below are the 0-dimensional and 1-dimensional persistence diagrams for the filtration of the image.
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{0dimpersTs.jpg}
 	\caption{$Dgm_0$}
-\end{figure}\newline
-\\
+\end{figure}
+
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{1dimpersTS.jpg}
 	\caption{$Dgm_1$}
-\end{figure}\newline
-\\
+\end{figure}
+
+
 
 \subsection{Filtering Individual Slides of CT Scans by Generating Point Cloud of Image and Embedding Cloud in $\mathbb{R}^2$}
 
 This approach involved flooring the background of the image and generating points out of the significant pixels (i.e. making the bright pixels in the image vertices). This point cloud was embedded in $\mathbb{R}^2$ and rca1dm.m was used to compute the 0-dimensional and 1-dimensional persistence diagrams (see testScript2.m in Appendix). Below are images detailing the steps of the process: \newline
-\\
+
 Below are the original images in grayscale:
-\\
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{tS1.jpg}
 	\caption{Grayscale Images of the Lungs at a Cross-section for Patients 306 and 321}
-\end{figure}\newline
-\\
+\end{figure}
+
 Below are the same images but have been down-sampled by a factor of 0.0625 to make the size of the point cloud manageable:
-\\
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{tS3.jpg}
 	\caption{Grayscale, Down-sampled Images}
-\end{figure}\newline
-\\
+\end{figure}
+
 Below are the down-sampled images, where the pixels with low intensity are floored to exclude insignificant points from the point cloud:
-\\
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{tS2.jpg}
 	\caption{Grayscale, Down-sampled Images with Pixel Values on a Binary Scale}
-\end{figure}\newline
-\\
+\end{figure}
+
 Below are the persistence diagrams after running rca1dm.m:
-\\
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{tSdgm0.jpg}
 	\caption{0-Dimensional Persistence Diagram}
-\end{figure}\newline
-\\
+\end{figure}
+
 \begin{figure}[H]
 \centering
 	\includegraphics[width=0.8\linewidth]{tSdgm1.jpg}
 	\caption{1-Dimensional Persistence Diagram}
-\end{figure}\newline
+\end{figure}
 
 As can be seen in the persistence plots, there seem to be some differences (in this very specific case) between lungs with nodules and lungs without nodules in terms of topological features of their CT scans. This is a very promising start and while we are looking into a few different filtrations to try.\newline
-\\
+
 \subsection{Quantifying Topological Features of an Entire Scan from Individual Slides}
 
 Some headway has been made in exploring ways to summarize the information of $N$ slides for a particular CT scan. In the Appendix, testScript3.m and testScript4.m are early attempts at computing persistence using the method of the previous section and tiling up metrics on those values into a vector. For example, by looking at some persistence diagrams of different slides by using the method of 2.1.3, one can see that the "clear" lungs have one or two very persistent 1-cycles and a couple very insignificant 1-cycles. However, for slides of "cloudy" lungs, there is a more even distribution. Therefore, testScript3.m and testScript4.m are concatenating the standard deviation of the 1-dimensional persistence intervals and comparing them for healthy and cloudy lungs. More ways of using the data from each slide will be implemented to see what can maximize the difference between CT scans of patients with clear and cloudy lungs.
@@ -191,11 +195,11 @@ More work needs to be done in exploring how the topological features of one imag
 
 \subsection{Data Storage and Handling}
 
-One tedious but important obstacle is how we are going to:\newline
+One tedious but important obstacle is to define a strategy for:
 
 \begin{enumerate}
-	\item Store the ~125 GB of CT scan data
-	\item Divide the data into different blocks for processing
+	\item Storing the ~125 GB of CT scan data
+	\item Dividing the data into different blocks for processing
 	\item Keeping track of each CT scan / how they will be labeled
 \end{enumerate}
 
@@ -204,24 +208,38 @@ One tedious but important obstacle is how we are going to:\newline
 The final goal of the project is to train a classifier to identify generally whether a patient has nodes in the lungs or does not as well as a regression model that predicts the degree of tumor proliferation in the lungs based on some metric calculated on the CT scan using our TDA techniques.
 
 
-
-
-
-
-
 \begin{appendices}
 \chapter{Appendix}
 \section{testScript.m}
-\lstinputlisting{/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript.m}
+\lstinputlisting{../TDA/testScript.m}
 \section{generateS.m}
-\lstinputlisting{/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/generateS.m}
+\lstinputlisting{../TDA/generateS.m}
 \section{testScript2.m}
-\lstinputlisting{/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript2.m}
+\lstinputlisting{../TDA/testScript2.m}
 \section{testScript3.m}
-\lstinputlisting{/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript3.m}
+\lstinputlisting{../TDA/testScript3.m}
 \section{testScript4.m}
-\lstinputlisting{/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript4.m}
+\lstinputlisting{../TDA/testScript4.m}
 \end{appendices}
+
+
+\begin{thebibliography}{9}
+\bibitem{LDIC}
+	Smith K, Clark K, Bennett W, Nolan T, Kirby J, Wolfsberger M, Moulton J, Vendt B, Freymann J.  Data from LIDC-IDRI.  http://dx.doi.org/10.7937/K9/		TCIA.2015.LO9QL9SX
+	
+\bibitem{TCIA}
+	Clark K, Vendt B, Smith K, Freymann J, Kirby J, Koppel P, Moore S, Phillips S, Maffitt D, Pringle M, Tarbox L, Prior F.
+	 \emph{The Cancer Imaging Archive (TCIA): Maintaining and Operating a Public Information Repository}, 
+	 Journal of Digital Imaging, Volume 26, Number 6, December, 2013, pp 1045-1057.
+	 
+\bibitem{LDIC_pub}
+	Armato SG III, McLennan G, Bidaut L, McNitt-Gray MF, Meyer CR, Reeves AP, Zhao B, Aberle DR, Henschke CI, Hoffman EA, Kazerooni EA,
+	MacMahon H, van Beek EJR, Yankelevitz D, et al.  
+	\emph{The Lung Image Database Consortium (LIDC) and Image Database Resource Initiative (IDRI): A completed reference database of lung
+	nodules on CT scans}.
+	Medical Physics, 
+	38: 915--931, 2011.
+\end{thebibliography}
 
 
 \end{document}
