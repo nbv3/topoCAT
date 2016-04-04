@@ -10,7 +10,7 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Scr
 
 
 
- for i = 1:5:imageNum
+ for i = 1:10:imageNum
      
     i
     
@@ -35,24 +35,24 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Scr
 
     % Need to condense the image
 
-    smallerImage = imresize(image,0.0625);
+    croppedImage = imresize(image,0.0625);
+
+% 
+%     xcropAmount = 5;
+%     xstartCrop = xcropAmount;
+%     xendCrop = length(smallerImage) - xcropAmount;
+% 
+%     ycropAmount = 5;
+%     ystartCrop = ycropAmount;
+%     yendCrop = length(smallerImage) - ycropAmount;
+% 
+%     croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
 
 
-    xcropAmount = 5;
-    xstartCrop = xcropAmount;
-    xendCrop = length(smallerImage) - xcropAmount;
-
-    ycropAmount = 5;
-    ystartCrop = ycropAmount;
-    yendCrop = length(smallerImage) - ycropAmount;
-
-    croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
-
-
-    m = mean2(croppedImage);
-
-    indicesToFloor = find(croppedImage < m);
-    croppedImage(indicesToFloor) = 0;
+%     m = mean2(croppedImage);
+% 
+%     indicesToFloor = find(croppedImage < m);
+%     croppedImage(indicesToFloor) = 0;
     
 %     figure(1)
 %     imagesc(croppedImage);
@@ -71,7 +71,7 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Scr
     distanceBound = max(distances);
 
     init;
-    [I, J] = rca1dm(dmat,distanceBound*0.25);
+    [I, J] = rca1dm(dmat,distanceBound*0.2);
     
     pers0 = horzcat(pers0, std(J(:,2)));
     pers1 = horzcat(pers1, std(I(:,2)));

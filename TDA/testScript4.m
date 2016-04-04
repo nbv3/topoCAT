@@ -10,7 +10,7 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/u
 
 
 
- for i = 1:5:imageNum
+ for i = 1:10:imageNum
      
     i
     
@@ -35,27 +35,27 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/u
 
     % Need to condense the image
 
-    smallerImage = imresize(image,0.0625);
+    croppedImage = imresize(image,0.0625);
 
+% 
+%     xcropAmount = 5;
+%     xstartCrop = xcropAmount;
+%     xendCrop = length(smallerImage) - xcropAmount;
+% 
+%     ycropAmount = 5;
+%     ystartCrop = ycropAmount;
+%     yendCrop = length(smallerImage) - ycropAmount;
+% 
+%     croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
 
-    xcropAmount = 5;
-    xstartCrop = xcropAmount;
-    xendCrop = length(smallerImage) - xcropAmount;
-
-    ycropAmount = 5;
-    ystartCrop = ycropAmount;
-    yendCrop = length(smallerImage) - ycropAmount;
-
-    croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
-
-
-    m = mean2(croppedImage);
-
-    indicesToFloor = find(croppedImage < m);
-    croppedImage(indicesToFloor) = 0;
-    
-    figure(1)
-    imagesc(croppedImage);
+% 
+%     m = mean2(croppedImage);
+% 
+%     indicesToFloor = find(croppedImage < m);
+%     croppedImage(indicesToFloor) = 0;
+%     
+%     figure(1)
+%     imagesc(croppedImage);
 
 
     % compute topology features on a cloud composed of the nonzero 2D vertices
