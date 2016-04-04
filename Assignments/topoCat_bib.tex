@@ -4,7 +4,7 @@
 \setlength{\oddsidemargin}{0in}
 \setlength{\evensidemargin}{0in}
 \setlength{\topmargin}{-.6in}
-\linespread{1.3}
+\linespread{1.2}
 
 % \renewcommand{\labelenumi}{\alph{enumi}}
 
@@ -37,7 +37,7 @@
 	{\scshape\Large Part 1: Bibliography\par}
 	\vspace{1.5cm}
 	{\Large TopoCAT : Exploring the Potential Role of TDA in Detecting Lung Cancer\par}
-	\vspace{2cm}
+	{\vspace{2cm}}
 	
 	{\normalsize Brody Kellish, Anirudh Jonnavithula, Nick von Turkovich\par}
 	\vfill
@@ -51,13 +51,19 @@
 \tableofcontents{}
 
 \part{Background}
-
 \chapter{The Problem}
-
 \section{Idea and Inspiration}
+\indent Radiology is one of the most important fields of medicine in terms of early detection and diagnosis of insidious, invasive, and ultimately life-threatening disorders and diseases, especially various forms of cancer. However, the analysis of various types of films (CT, MRI, X-ray, etc.) is a largely subjective process, which draws heavily from the radiologist's history, experience, and own natural biases and tendencies. \\
+\indent Modern medical imaging produces large amounts of high-quality image data. Large datasets that combine this image data with official diagnoses are publicly available. A cursory visual inspection of these scans showed obvious visual differences between healthy and ill patients. This delineation suggests that a basic classification algorithm might have some success in analytically determining patient diagnoses. \\
+\indent However, such binary classification is not inherently useful on its own - there is a very clear notion of \textit{severity}, that is directly linked to the proliferation of cancerous tissues. This relationship suggests a classic regression problem, in which the characteristics of various forms of medical imagery may be used as as a predictor for patient prognosis.\\
+\indent We observe that cancerous tissue in the lung forms \textit{nodules}, which grow and form as the cancer spreads. These nodules are typically small, connected, clusters of distinct tissue, with an underlying structure that appears to generally persist between patients. We hope to apply topological analysis to this image data in order to extract relevant features from these tissue structures, which will be used to develop, train, and test classification and/or regression algorithms.
 
 \section{Hypothesis}
-
+The extraction of topological features from CT scans of patients with and without lung cancer will allow us to train a reliable classification and regression algorithm to accurately and reliably predict:
+\begin{itemize}
+\item Whether or not this patient has lung cancer (generally).
+\item Patient prognosis based on the proliferation, connectivity, and growth of cancerous tissue.
+\end{itemize}
 \section{Data}
 
 \chapter{The Approach}
