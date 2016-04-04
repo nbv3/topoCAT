@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 APR 2016 14:29
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015) (preloaded format=pdflatex 2015.5.24)  4 APR 2016 14:59
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -234,123 +234,93 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 
  [1
 
-] [2]
-[3
+] [2
 
 ]
 Chapter 1.
-[4
+[3
 
 ]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 72.
+ (/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 72.
+ [4]
 Chapter 2.
-<306example.jpg, id=24, 1027.84pt x 1027.84pt>
+<306example.jpg, id=26, 1027.84pt x 1027.84pt>
 File: 306example.jpg Graphic file (type jpg)
  <use 306example.jpg>
-Package pdftex.def Info: 306example.jpg used on input line 88.
+Package pdftex.def Info: 306example.jpg used on input line 96.
 (pdftex.def)             Requested size: 182.12117pt x 182.11743pt.
 
-<321example.jpg, id=25, 1027.84pt x 1027.84pt>
+<321example.jpg, id=27, 1027.84pt x 1027.84pt>
 File: 321example.jpg Graphic file (type jpg)
  <use 321example.jpg>
-Package pdftex.def Info: 321example.jpg used on input line 94.
+Package pdftex.def Info: 321example.jpg used on input line 102.
 (pdftex.def)             Requested size: 182.12117pt x 182.11743pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--103
+Underfull \hbox (badness 10000) in paragraph at lines 86--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--103
+Underfull \hbox (badness 10000) in paragraph at lines 86--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--103
+Underfull \hbox (badness 10000) in paragraph at lines 86--111
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 78--103
+Underfull \hbox (badness 10000) in paragraph at lines 86--111
 
  []
 
 [5
 
 ]
-Underfull \hbox (badness 10000) in paragraph at lines 106--109
+Underfull \hbox (badness 10000) in paragraph at lines 114--117
 
  []
 
-<tSIm.jpg, id=29, 1124.2pt x 843.15pt>
+<tSIm.jpg, id=31, 1124.2pt x 843.15pt>
 File: tSIm.jpg Graphic file (type jpg)
  <use tSIm.jpg>
-Package pdftex.def Info: tSIm.jpg used on input line 112.
+Package pdftex.def Info: tSIm.jpg used on input line 120.
 (pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
 
 
-./topoCat_bib.tex:114: LaTeX Error: There's no line here to end.
+./topoCat_bib.tex:122: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.114 \end{figure}\newline
+l.122 \end{figure}\newline
                           
 ? 
 
-./topoCat_bib.tex:116: LaTeX Error: There's no line here to end.
+./topoCat_bib.tex:124: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.116 B
+l.124 B
        elow are the 0-dimensional and 1-dimensional persistence diagrams for...
 
 ? 
 [6 <./306example.jpg> <./321example.jpg>]
-<0dimpersTs.jpg, id=35, 1124.2pt x 843.15pt>
+<0dimpersTs.jpg, id=37, 1124.2pt x 843.15pt>
 File: 0dimpersTs.jpg Graphic file (type jpg)
  <use 0dimpersTs.jpg>
-Package pdftex.def Info: 0dimpersTs.jpg used on input line 119.
+Package pdftex.def Info: 0dimpersTs.jpg used on input line 127.
 (pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
 
-
-./topoCat_bib.tex:121: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.121 \end{figure}\newline
-                          
-? 
-
-./topoCat_bib.tex:123: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.123 \begin
-            {figure}[H]
-? 
-<1dimpersTS.jpg, id=36, 1124.2pt x 843.15pt>
-File: 1dimpersTS.jpg Graphic file (type jpg)
- <use 1dimpersTS.jpg>
-Package pdftex.def Info: 1dimpersTS.jpg used on input line 125.
-(pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
- [7 <./tSIm.jpg>]
-
-./topoCat_bib.tex:127: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.127 \end{figure}\newline
-                          
-? 
 
 ./topoCat_bib.tex:129: LaTeX Error: There's no line here to end.
 
@@ -358,56 +328,61 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.129 
+l.129 \end{figure}\newline
+                          
+? 
+
+./topoCat_bib.tex:131: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.131 \begin
+            {figure}[H]
+? 
+<1dimpersTS.jpg, id=38, 1124.2pt x 843.15pt>
+File: 1dimpersTS.jpg Graphic file (type jpg)
+ <use 1dimpersTS.jpg>
+Package pdftex.def Info: 1dimpersTS.jpg used on input line 133.
+(pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
+ [7 <./tSIm.jpg>]
+
+./topoCat_bib.tex:135: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.135 \end{figure}\newline
+                          
+? 
+
+./topoCat_bib.tex:137: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.137 
       
 ? 
-<tS1.jpg, id=40, 1124.2pt x 843.15pt>
+<tS1.jpg, id=42, 1124.2pt x 843.15pt>
 File: tS1.jpg Graphic file (type jpg)
  <use tS1.jpg>
-Package pdftex.def Info: tS1.jpg used on input line 138.
+Package pdftex.def Info: tS1.jpg used on input line 146.
 (pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--140
+Underfull \hbox (badness 10000) in paragraph at lines 140--148
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 132--140
+Underfull \hbox (badness 10000) in paragraph at lines 140--148
 
  []
 
 [8 <./0dimpersTs.jpg> <./1dimpersTS.jpg>]
-
-./topoCat_bib.tex:140: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.140 \end{figure}\newline
-                          
-? 
-
-./topoCat_bib.tex:142: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.142 B
-       elow are the same images but have been down-sampled by a factor of 0....
-
-? 
-<tS3.jpg, id=45, 1124.2pt x 843.15pt>
-File: tS3.jpg Graphic file (type jpg)
- <use tS3.jpg>
-Package pdftex.def Info: tS3.jpg used on input line 146.
-(pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 142--148
-
- []
-
 
 ./topoCat_bib.tex:148: LaTeX Error: There's no line here to end.
 
@@ -426,13 +401,13 @@ Type  H <return>  for immediate help.
  ...                                              
                                                   
 l.150 B
-       elow are the down-sampled images, where the pixels with low intensity...
+       elow are the same images but have been down-sampled by a factor of 0....
 
 ? 
-[9 <./tS1.jpg>] <tS2.jpg, id=49, 1124.2pt x 843.15pt>
-File: tS2.jpg Graphic file (type jpg)
- <use tS2.jpg>
-Package pdftex.def Info: tS2.jpg used on input line 154.
+<tS3.jpg, id=47, 1124.2pt x 843.15pt>
+File: tS3.jpg Graphic file (type jpg)
+ <use tS3.jpg>
+Package pdftex.def Info: tS3.jpg used on input line 154.
 (pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
 
 Underfull \hbox (badness 10000) in paragraph at lines 150--156
@@ -459,7 +434,7 @@ Type  H <return>  for immediate help.
 l.158 B
        elow are the persistence diagrams after running rca1dm.m:
 ? 
-[10 <./tS3.jpg>] <tSdgm0.jpg, id=53, 1124.2pt x 843.15pt>
+[9 <./tS1.jpg>] <tSdgm0.jpg, id=51, 1124.2pt x 843.15pt>
 File: tSdgm0.jpg Graphic file (type jpg)
  <use tSdgm0.jpg>
 Package pdftex.def Info: tSdgm0.jpg used on input line 162.
@@ -489,12 +464,12 @@ Type  H <return>  for immediate help.
 l.166 \begin
             {figure}[H]
 ? 
-<tSdgm1.jpg, id=54, 1124.2pt x 843.15pt>
+<tSdgm1.jpg, id=52, 1124.2pt x 843.15pt>
 File: tSdgm1.jpg Graphic file (type jpg)
  <use tSdgm1.jpg>
 Package pdftex.def Info: tSdgm1.jpg used on input line 168.
 (pdftex.def)             Requested size: 364.24236pt x 273.17139pt.
- [11 <./tS2.jpg>]
+ [10 <./tS3.jpg>]
 
 ./topoCat_bib.tex:170: LaTeX Error: There's no line here to end.
 
@@ -515,12 +490,12 @@ Underfull \hbox (badness 10000) in paragraph at lines 172--174
 
  []
 
-[12 <./tSdgm0.jpg> <./tSdgm1.jpg>]
+[11 <./tSdgm0.jpg> <./tSdgm1.jpg>]
 Underfull \hbox (badness 10000) in paragraph at lines 188--189
 
  []
 
-[13] [14] [15
+[12] [13] [14
 
 
 ]
@@ -535,7 +510,7 @@ Overfull \hbox (299.04749pt too wide) in paragraph at lines 7--8
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[16
+[15
 
 ]
 LaTeX Font Info:    Try loading font information for OML+cmr on input line 40.
@@ -544,23 +519,17 @@ File: omlcmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <12> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 40.
- [17]
-[18]) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/generateS.m
+ [16])
+(/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/generateS.m [17]
 Overfull \hbox (17.04797pt too wide) in paragraph at lines 18--19
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[19]
+
 Overfull \hbox (66.39789pt too wide) in paragraph at lines 32--33
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 37.
-(/usr/local/texlive/2015/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <12> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 37.
 
 Overfull \hbox (299.04749pt too wide) in paragraph at lines 37--38
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][][
@@ -572,7 +541,7 @@ Overfull \hbox (73.44788pt too wide) in paragraph at lines 40--41
 [][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript2.m
+[18]) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript2.m
 Overfull \hbox (235.5976pt too wide) in paragraph at lines 4--5
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -582,7 +551,7 @@ Overfull \hbox (299.04749pt too wide) in paragraph at lines 7--8
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[20] [21]
+[19]
 Overfull \hbox (122.79779pt too wide) in paragraph at lines 49--50
 [][][][][][][][][][][][][][][][][][][][][] 
  []
@@ -592,19 +561,19 @@ Overfull \hbox (108.69781pt too wide) in paragraph at lines 54--56
 [][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[22]
+[20]
 Overfull \hbox (66.39789pt too wide) in paragraph at lines 88--90
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[23]) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript3.m [24]
+[21] [22]) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript3.m
 Overfull \hbox (235.5976pt too wide) in paragraph at lines 8--13
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[25]
-Overfull \hbox (122.79779pt too wide) in paragraph at lines 49--52
-[][][][][][][][][][][][][][][][][][][][] 
+[23]
+Overfull \hbox (136.89777pt too wide) in paragraph at lines 49--52
+[][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
 
@@ -612,44 +581,45 @@ Overfull \hbox (94.59784pt too wide) in paragraph at lines 61--63
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[26]) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript4.m
+[24]) (/Users/nbv3/Desktop/Math_Projects/topoCAT/TDA/testScript4.m
 Overfull \hbox (200.34766pt too wide) in paragraph at lines 8--13
 [][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[27]
-Overfull \hbox (122.79779pt too wide) in paragraph at lines 49--52
-[][][][][][][][][][][][][][][][][][][][] 
+[25]
+Overfull \hbox (136.89777pt too wide) in paragraph at lines 49--51
+[][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-[28]
+
 Overfull \hbox (94.59784pt too wide) in paragraph at lines 61--63
 [][][][][][][][][][][][][][][][][][][][][][][][][][][][][] 
  []
 
-) [29] (./topoCat_bib.aux) ) 
+[26]) [27] (./topoCat_bib.aux) ) 
 Here is how much of TeX's memory you used:
- 4155 strings out of 493089
- 64690 string characters out of 6134842
- 138968 words of memory out of 5000000
- 7569 multiletter control sequences out of 15000+600000
- 13913 words of font info for 53 fonts, out of 8000000 for 9000
+ 4153 strings out of 493089
+ 64671 string characters out of 6134842
+ 141968 words of memory out of 5000000
+ 7567 multiletter control sequences out of 15000+600000
+ 14260 words of font info for 54 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  38i,8n,38p,951b,1420s stack positions out of 5000i,500n,10000p,200000b,80000s
-</usr/local/texlive/2015/texmf-dist/fonts/type1/pub
-lic/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publ
-ic/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
-amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/am
-sfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
-onts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfont
-s/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfonts
-/symbols/msbm10.pfb>
-Output written on topoCat_bib.pdf (30 pages, 1312967 bytes).
+</usr/local/texlive/2015/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmbx12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmcsc10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmi12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmr10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmr12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmr17.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/
+amsfonts/cm/cmr8.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmsy10.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsf
+onts/cm/cmti12.pfb></usr/local/texlive/2015/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb>
+Output written on topoCat_bib.pdf (28 pages, 1260279 bytes).
 PDF statistics:
- 146 PDF objects out of 1000 (max. 8388607)
- 94 compressed objects within 1 object stream
+ 143 PDF objects out of 1000 (max. 8388607)
+ 93 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 51 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
