@@ -1,11 +1,14 @@
 %% Test2
 % Nicholas von Turkovich
 
+clear;
+clf;
+
 pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Screen__0/unnamed_0';
 filenameHealthy = '/IM-0001-0050.jpg';
 
-pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/321/Ct_Chest_Wo_Contrast__0/unnamed_2/';
-filenameUnhealthy = '/IM-0001-0060.jpg';
+pathUnhealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/321/Ct_Chest_Wo_Contrast__0/unnamed_2';
+filenameUnhealthy = '/IM-0001-0050.jpg';
 
 image = rgb2gray(imread([pathHealthy filenameHealthy]));
 image2 = rgb2gray(imread([pathUnhealthy filenameUnhealthy]));
@@ -22,15 +25,15 @@ colormap gray
 
 % Need to condense the image
 
-smallerImage = imresize(image,0.0625);
-smallerImage2 = imresize(image2,0.0625);
+smallerImage = imresize(image,0.04, 'bicubic');
+smallerImage2 = imresize(image2,0.04, 'bicubic');
 
 figure(2)
 subplot(2,1,1)
-mesh(smallerImage);
+imadjust(smallerImage);
 
 subplot(2,1,2)
-mesh(smallerImage2);
+imadjust(smallerImage2);
 
 % processing for image 1
 % xcropAmount = 10;
@@ -65,16 +68,16 @@ subplot(2,1,2)
 imagesc(croppedImage2);
 colormap gray;
 
-m = mean2(croppedImage);
-m2 = mean2(croppedImage2);
-dev = std(croppedImage);
-dev2 = std(croppedImage2);
-
-% indicesToFloor = find(croppedImage < m);
-% croppedImage(indicesToFloor) = 0;
-% indicesToFloor2 = find(croppedImage2 < m2);
-% croppedImage2(indicesToFloor2) = 0;
-
+% m = mean2(croppedImage);
+% m2 = mean2(croppedImage2);
+% dev = std(croppedImage);
+% dev2 = std(croppedImage2);
+% 
+% % indicesToFloor = find(croppedImage < m);
+% % croppedImage(indicesToFloor) = 0;
+% % indicesToFloor2 = find(croppedImage2 < m2);
+% % croppedImage2(indicesToFloor2) = 0;
+% 
 figure(4)
 subplot(2,1,1)
 imagesc(imadjust(croppedImage));
@@ -83,8 +86,8 @@ colormap gray;
 subplot(2,1,2)
 imagesc(imadjust(croppedImage2));
 colormap gray;
-
-
+% 
+% 
 % compute topology features on a cloud composed of the nonzero 2D vertices
 
 [row col] = find(croppedImage);
@@ -113,6 +116,9 @@ distanceBound2 = max(distances2);
 init;
 [I, J] = rca1dm(dmat,distanceBound*0.25);
 [I2, J2] = rca1dm(dmat2, distanceBound2*0.25);
+
+lifetimes = I(:,2) - I(:,1);
+lifetimes2 = I2(:,2) - I2(:,1);
 
 figure(5)
 subplot(2,1,1)

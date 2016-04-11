@@ -1,5 +1,7 @@
 %% Test3: Clear Lungs
 % Nicholas von Turkovich
+clear;
+
 
 imageNum = 123;
 
@@ -7,8 +9,7 @@ pers0 = [];
 pers1 = [];
 pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Screen__0/unnamed_0';
 
-
-
+index = [];
 
  for i = 1:10:imageNum
      
@@ -33,32 +34,7 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Scr
 
     image = rgb2gray(imread([pathHealthy filenameHealthy]));
 
-    % Need to condense the image
-
-    croppedImage = imresize(image,0.0625);
-
-% 
-%     xcropAmount = 5;
-%     xstartCrop = xcropAmount;
-%     xendCrop = length(smallerImage) - xcropAmount;
-% 
-%     ycropAmount = 5;
-%     ystartCrop = ycropAmount;
-%     yendCrop = length(smallerImage) - ycropAmount;
-% 
-%     croppedImage = double(smallerImage(xstartCrop:xendCrop, ystartCrop:yendCrop));
-
-
-%     m = mean2(croppedImage);
-% 
-%     indicesToFloor = find(croppedImage < m);
-%     croppedImage(indicesToFloor) = 0;
-    
-%     figure(1)
-%     imagesc(croppedImage);
-
-
-    % compute topology features on a cloud composed of the nonzero 2D vertices
+    croppedImage = double(imresize(image,0.04));
 
     [row col] = find(croppedImage);
 
@@ -75,6 +51,11 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/306/Ct_Lung_Scr
     
     pers0 = horzcat(pers0, std(J(:,2)));
     pers1 = horzcat(pers1, std(I(:,2)));
-    
-
+    index = horzcat(index, i);
  end
+ 
+ figure(1)
+ plot(index, pers1, 'o');
+ 
+ 
+ 
