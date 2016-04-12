@@ -1,4 +1,4 @@
-function [] = VideoTopology(playSequences)
+function [ videoStructs ] = readScans(playSequences)
 % Compute topology on each frame of a sequence of CT scan slides. Track how
 % topology changes as we move vertically upwards through the lung. This
 % sequence of statistics on the topology of the volumetric scan will be
@@ -17,7 +17,6 @@ for i=1:length(vids)
     fprintf('Patient %s ', vids(i).name(1:end-4));
     vidFile = strcat(path, vids(i).name);
     vidReader = VideoReader(vidFile);
-    fprintf('...');
     vidFrames = read(vidReader);
     framerate = vidReader.FrameRate;
     numFrames = get(vidReader, 'NumberOfFrames');
@@ -35,12 +34,12 @@ for i=1:length(vids)
         mov(k).cdata = vidFrames(:,:,:, k);
         mov(k).colormap = [];
         percent = percent + 1./numFrames;
-        if percent > 0.10
+        if percent > 0.1
             fprintf('.');
             percent = 0;
         end
     end
-    fprintf(' Done!\n');
+    fprintf(' Done\n');
     videoStructs(i).movie = mov;
     
 end
