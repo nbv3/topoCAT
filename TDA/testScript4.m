@@ -1,11 +1,14 @@
 %% Test4: Cloudy Lungs
 % Nicholas von Turkovich
 
-imageNum = 131;
+clear;
+
+imageNum = 200;
 
 p0 = [];
 p1 = [];
-pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/unnamed_3211';
+index = [];
+pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/321/Ct_Chest_Wo_Contrast__0/unnamed_2';
 
 
 
@@ -35,7 +38,7 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/u
 
     % Need to condense the image
 
-    croppedImage = imresize(image,0.0625);
+    croppedImage = imresize(image,0.04);
 
 % 
 %     xcropAmount = 5;
@@ -75,6 +78,8 @@ pathHealthy = '/Users/nbv3/Desktop/Math_Projects/topoCAT/ctScans/84/Unnamed__0/u
     
     p0 = horzcat(p0, std(J(:,2)));
     p1 = horzcat(p1, std(I(:,2)));
+    
+    index = horzcat(index, i);
     
 
  end
