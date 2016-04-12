@@ -45,13 +45,3 @@ for i=1:length(vids)
 end
 
 clear vidFile vidReader vidFrames framerate numFrames w h vids path percent dirname scantype slide i k ans
-
-%% Play entire sequence of videos
-if playSequences
-    hf = figure(2);
-    set(hf, 'position', [400 400 videoStructs(1).width videoStructs(1).height]);
-    for i=1:length(videoStructs)
-        movie(hf, videoStructs(i).movie, 1, videoStructs(i).framerate);
-    end
-end
-clear hf i mov
