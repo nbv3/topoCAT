@@ -1,4 +1,4 @@
-function [ videoStructs ] = readScans(playSequences)
+function [ videoStructs ] = readScans()
 % Compute topology on each frame of a sequence of CT scan slides. Track how
 % topology changes as we move vertically upwards through the lung. This
 % sequence of statistics on the topology of the volumetric scan will be
