@@ -1,15 +1,24 @@
 % analyzePatient.m
-function [zeroPers, onePers] = analyzePatient(patient)
+% INPUT
+% ctVid              VideoStruct returned from readScans(dir, ext);
+% patientDiagnosis   integer label (0 = healthy, 1 = cancer)
+% N                  retain the N most-persistent 0/1 dim intervals
+% 
+% OUTPUT
+% analysis           Struct with ID, diagnosis, and top N% 0/1 dim persistence
+function [analysis] = analyzePatient(ctVid, patientDiagnosis, N)
 
-% pid = patient.ID;
-mov = patient.movie;
+pid = ctVid.ID;
+mov = ctVid.movie;
 
 numFrames = length(mov);
-numPersVals = 10;
 
-zeroPers = repmat(zeros(numPersVals, 3), 1, 1, numFrames);
-onePers  = repmat(zeros(numPersVals, 3), 1, 1, numFrames);
-
+analysis = struct('id',        pid, ...                
+                 'diagnosis',  patientDiagnosis, ...
+                 'numFrames',  numFrames, ...
+                 'zeroDim',    zeros(numFrames, N), ...
+                 'oneDim',     zeros(numFrames, N) );
+             
 distfun = @(a,b) sqrt((a(:,1)-b(:,1)).^2 + (a(:,2)-b(:,2)).^2);
 
 for i=1:numFrames
@@ -52,15 +61,12 @@ for i=1:numFrames
     sortZeroDim = sortbypersistence(J);
     
     %% Store N most persistent zero/one cycles
-    zeroPers(:, 1, i)  = sortZeroDim(1:numPersVals, 1);
-    zeroPers(:, 2, i)  = sortZeroDim(1:numPersVals, 2);
-    zeroPers(:, 3, i)  = sortZeroDim(1:numPersVals, 3);
     
-    onePers(:, 1, i)   = sortOneDim(1:numPersVals, 1);
-    onePers(:, 2, i)   = sortOneDim(1:numPersVals, 2);
-    onePers(:, 3, i)   = sortOneDim(1:numPersVals, 3);
-    
+    analysis.zeroDim(i, 1:N) = sortZeroDim(1:N, 3)';
+    analysis.oneDim (i, 1:N) = sortOneDim (1:N, 3)';
+     
 end
+
 
 
 end

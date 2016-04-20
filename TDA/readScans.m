@@ -5,7 +5,7 @@ function [ videoStructs ] = readScans(path, ext)
 % used to compute features for classification and regression.
 
 %% Get video directory
-vids = dir([path, strcat('\*.', ext)]);
+vids = dir([path, strcat('*.', ext)]);
 
 videoStructs = struct('ID', 0, 'framerate', 0, 'movie', [], 'width', 0, 'height', 0);
 
