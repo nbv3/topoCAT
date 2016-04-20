@@ -1,11 +1,11 @@
-function [ videoStructs ] = readScans(path)
+function [ videoStructs ] = readScans(path, ext)
 % Compute topology on each frame of a sequence of CT scan slides. Track how
 % topology changes as we move vertically upwards through the lung. This
 % sequence of statistics on the topology of the volumetric scan will be
 % used to compute features for classification and regression.
 
 %% Get video directory
-vids = dir([path, '\*.avi']);
+vids = dir([path, strcat('\*.', ext)]);
 
 videoStructs = struct('ID', 0, 'framerate', 0, 'movie', [], 'width', 0, 'height', 0);
 
