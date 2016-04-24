@@ -1,5 +1,5 @@
 %% Total Study
-clear; clc;
+clear;
 
 path = '../Videos/good/';
 ext = 'avi';
@@ -19,25 +19,24 @@ for i = 1:numPatients
     % Get patient video
     patientScan = readScans(strcat(path, vids(i).name));
     % Find patient diagnosis (ie. node count)
-    patientIndex = (names == patientScan.id);
+    patientIndex = (names == patientScan.ID);
     patientNodeCount = numNodes(patientIndex);
     
     % Extract 4 most persistent topological features from CT scan
-    profile = analyzePatient(patientScan, patientNodeCount, 15);
+    profile = analyzePatient(patientScan, 4);
     % Interpolate data
     interpProfile = interpolatePersistence(profile);
     
-    save('./temp.mat', 'interpProfile')
-    movefile('temp.mat', sprintf('../topoData/%s.mat', num2str(patientScan.id)))
+    movefile('prof.mat', sprintf('../topoData/%s.mat', num2str(10)))
     
-%     % Extract regression features
-%     
-%     
-%     featureVector = extractVector(interpProfile);
-%     
-%     dataSet(i).id       = profile.id;
-%     dataSet(i).features = featureVector;
-%     dataSet(i).label    = patientNodeCount;
+    % Extract regression features
+    
+    
+    featureVector = extractVector(interpProfile);
+    
+    dataSet(i).id       = profile.id;
+    dataSet(i).features = featureVector;
+    dataSet(i).label    = patientNodeCount;
     
     clear patientScan patientIndex patientNodeCount profile featureVector
     

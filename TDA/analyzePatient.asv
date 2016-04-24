@@ -6,18 +6,17 @@
 % 
 % OUTPUT
 % analysis           Struct with ID, diagnosis, and top N% 0/1 dim persistence
-function [analysis] = analyzePatient(ctVid, nodeCount, N)
+function [analysis] = analyzePatient(ctVid, N)
 
-pid = ctVid.id;
+pid = ctVid.ID;
 mov = ctVid.movie;
 
 numFrames = length(mov);
 
-analysis = struct('id',         pid, ...  
-                  'nodeCount',  nodeCount, ...
-                  'numFrames',  numFrames, ...
-                  'zeroDim',    zeros(numFrames, N), ...
-                  'oneDim',     zeros(numFrames, N) );
+analysis = struct('id',        pid, ...                
+                 'numFrames',  numFrames, ...
+                 'zeroDim',    zeros(numFrames, N), ...
+                 'oneDim',     zeros(numFrames, N) );
              
 distfun = @(a,b) sqrt((a(:,1)-b(:,1)).^2 + (a(:,2)-b(:,2)).^2);
 
@@ -25,7 +24,9 @@ for i=1:numFrames
     % Get frame
     frame = mov(i);
     slice = rgb2gray(imresize(frame.cdata, 0.25));
-
+    % Zero out background pixels, std dev 1
+    slice = slice - mode(mode(slice));
+    slice = slice ./ std(std(slice));
     % Ignore zero points
     [row, col] = find(slice);
     

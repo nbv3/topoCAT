@@ -5,9 +5,17 @@ function [ videoStructs ] = readScans(path, ext)
 % used to compute features for classification and regression.
 
 %% Get video directory
-vids = dir([path, strcat('*.', ext)]);
 
-videoStructs = struct('ID', 0, 'framerate', 0, 'movie', [], 'width', 0, 'height', 0);
+if nargin == 1
+   vids = dir(path);
+   path = path(1:end-8);
+elseif nargin == 2
+   vids = dir([path, strcat('*.', ext)]);
+else
+    error('Invalid input');
+end    
+
+videoStructs = struct('id', 0, 'framerate', 0, 'movie', [], 'width', 0, 'height', 0);
 
 for i=1:length(vids)
     fprintf('Patient %s ', vids(i).name(1:end-4));
@@ -19,7 +27,7 @@ for i=1:length(vids)
     w = vidReader.Width;
     h = vidReader.Height;
     
-    videoStructs(i).ID = uint8(str2double(vidFile(end-7:end-4)));
+    videoStructs(i).id = uint8(str2double(vidFile(end-7:end-4)));
     videoStructs(i).framerate = framerate;
     videoStructs(i).width = w;
     videoStructs(i).height = h;
