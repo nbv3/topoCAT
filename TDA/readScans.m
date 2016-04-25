@@ -27,7 +27,7 @@ for i=1:length(vids)
     w = vidReader.Width;
     h = vidReader.Height;
     
-    videoStructs(i).id = uint8(str2double(vidFile(end-7:end-4)));
+    videoStructs(i).id = uint16(str2double(vidFile(end-7:end-4)));
     videoStructs(i).framerate = framerate;
     videoStructs(i).width = w;
     videoStructs(i).height = h;

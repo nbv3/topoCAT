@@ -15,7 +15,7 @@ dataSet = struct('id', [], 'features', [], 'label', []);
 dataSet = repmat(dataSet, [1 length(vids)]);
 
 
-for i = 32:numPatients
+for i = 64:numPatients
     % Get patient video
     patientScan = readScans(strcat(path, vids(i).name));
     % Find patient diagnosis (ie. node count)
