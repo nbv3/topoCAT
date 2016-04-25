@@ -15,7 +15,7 @@ dataSet = struct('id', [], 'features', [], 'label', []);
 dataSet = repmat(dataSet, [1 length(vids)]);
 
 
-for i = 1:numPatients
+for i = 32:numPatients
     % Get patient video
     patientScan = readScans(strcat(path, vids(i).name));
     % Find patient diagnosis (ie. node count)
@@ -39,7 +39,7 @@ for i = 1:numPatients
 %     dataSet(i).features = featureVector;
 %     dataSet(i).label    = patientNodeCount;
     
-    clear patientScan patientIndex patientNodeCount profile featureVector
+    clear patientScan patientIndex patientNodeCount profile interpProfile
     
 end
 
