@@ -5,10 +5,23 @@ function [ vec ] = extractVector( profile )
 raw1 = profile.oneDim;
 raw0 = profile.zeroDim;
 
-vec1 = raw1(:);
-vec0 = raw0(:);
+% oneDim and zeroDim are necessarily the same dimension
+[row col] = size(profile.oneDim);
 
-vec = horzcat(vec0', vec1');
+% 1000 rows and 15 columns (15 cycles)
+
+% meanVals = mean(profile.oneDim);
+% maxVals = max(profile.oneDim);
+% minVals = min(profile.oneDim);
+% stdVals = std(profile.oneDim);
+
+
+vec = diff(profile.oneDim(:,1)');
+
+
+% vec = horzcat(meanVals(1:5), maxVals(1:5), minVals(1:5), stdVals(1:5));
+
+
 
 end
 
