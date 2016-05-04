@@ -17,7 +17,9 @@ analysis = struct('id',         pid, ...
                   'nodeCount',  nodeCount, ...
                   'numFrames',  numFrames, ...
                   'zeroDim',    zeros(numFrames, N), ...
-                  'oneDim',     zeros(numFrames, N) );
+                  'oneDim',     zeros(numFrames, N), ...
+                  'zeroDimStats', zeros(numFrames, 3),...
+                  'oneDimStats', zeros(numFrames, 3));
              
 distfun = @(a,b) sqrt((a(:,1)-b(:,1)).^2 + (a(:,2)-b(:,2)).^2);
 
@@ -64,6 +66,8 @@ for i=1:numFrames
     
     analysis.zeroDim(i, 1:N) = sortZeroDim(1:N, 3)';
     analysis.oneDim (i, 1:N) = sortOneDim (1:N, 3)';
+    analysis.zeroDimStats(i, 1:3) = [mean(sortZeroDim(:,3)) std(sortZeroDim(:,3)) median(sortZeroDim(:,3))];
+    analysis.oneDimStats(i, 1:3) = [mean(sortOneDim(:,3)) std(sortOneDim(:,3)) median(sortOneDim(:,3))];
      
 end
 
