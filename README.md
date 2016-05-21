@@ -8,7 +8,7 @@ Detecting cancerous lung nodules through topological analysis of CAT scans
 
 Capstone project for undergraduate course in topological data analysis
 
-Download the CT scan data used for analysis here: ![CT Data](https://drive.google.com/file/d/0B9TyDaysAIcKTVFRbTJDQnZYV0U/view?usp=sharing)
+Download the CT scan data used for analysis here: [CT Data](https://drive.google.com/file/d/0B9TyDaysAIcKTVFRbTJDQnZYV0U/view?usp=sharing)
 
 
 All data synthesized from LIDC (Lung Image Database Consortium)
